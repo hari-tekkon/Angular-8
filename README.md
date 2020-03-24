@@ -1,6 +1,6 @@
 # Angular-8
 
-# Action
+# Actions
 Actions express unique events that happen throughout your application
 
 # Reducers
