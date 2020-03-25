@@ -1,6 +1,19 @@
-<div>
+<!--<div>-->
 
-  <h2>NGRX PRACTICE!</h2>
-</div>
-<app-add></app-add>
-<app-todo></app-todo>
+<!--  <h2>NGRX PRACTICE!</h2>-->
+<!--</div>-->
+<!--<app-add></app-add>-->
+<!--<app-todo></app-todo>-->
+<div [class.loading]="loading$ | async" id="shopping-list" *ngIf="!(error$ | async)"></div>
+<h2>Shopping Items</h2>
+<ul>
+  <li *ngFor="let shopping of shoppingItems$ | async" (click)="deleteItem(shopping.id)">
+    {{shopping.name}}
+  </li>
+</ul>
+
+<h4>Form</h4>
+<form (ngSubmit)="addItem()">
+  <input type="text" [(ngModel)]="newShoppingAdd.name" placeholder="Item" name="itemName"/>
+  <button type="submit">Add</button>
+</form>
