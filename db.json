@@ -1,20 +1,8 @@
 {
   "shopping": [
     {
-      "id": "bc1dc3a5-1e98-496f-9093-b2cc1d90be09",
-      "name": "Pepsi"
-    },
-    {
-      "id": "6f424dde-6aa3-44db-8109-7d366e71e833",
-      "name": "Cocacola"
-    },
-    {
-      "id": "0bf01d11-26b7-4dbd-907a-0722015869c9",
-      "name": "asd"
-    },
-    {
-      "id": "aa37d525-b02c-47f4-a839-a12d76f367aa",
-      "name": "as"
+      "id": "67c49d90-53be-4063-838e-7a5f56905421",
+      "name": "pepsi"
     }
   ]
 }

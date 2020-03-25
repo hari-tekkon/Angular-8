@@ -20,10 +20,7 @@ export class ShoppingEffects {
     mergeMap(
       () => this.shoppingService.get()
         .pipe(
-          map(data => {
-            console.log(data);
-            return new LoadShoppingSuccess(data);
-          }),
+          map(data => new LoadShoppingSuccess(data)),
           catchError(error => of(new LoadShoppingFailure(error)))
         )
     )
@@ -31,12 +28,11 @@ export class ShoppingEffects {
 
   @Effect() addShopping$ = this.actions$.pipe(
     ofType<ShoppingAdd>(ShoppingActionTypes.Add),
-    mergeMap(
-      (data) => this.shoppingService.add(data.payload)
-        .pipe(
-          map(() => new ShoppingAddSuccess(data.payload)),
-          catchError(error => of(new ShoppingAddFailure(error)))
-        )
+    mergeMap(data => this.shoppingService.add(data.payload)
+      .pipe(
+        map(() => new ShoppingAddSuccess(data.payload)),
+        catchError(error => of(new ShoppingAddFailure(error)))
+      )
     )
   );
 

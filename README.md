@@ -1,4 +1,8 @@
-# Angular-8
+# Run server
+json-server db.json
+
+# .............
+
 
 # Actions
 Actions express unique events that happen throughout your application
