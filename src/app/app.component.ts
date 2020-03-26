@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Shopping} from './models/shopping.model';
 import {LoadShopping, ShoppingAdd, ShoppingAddSuccess, ShoppingDelete, ShoppingDeleteSuccess} from './actions/shopping.actions';
 import {v4 as uuid} from 'uuid';
+import {getListState, getLoadingState, getShoppingState} from './selectors/shopping.selectors';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.shoppingItems$ = this.store.select(store => store.shopping.list);
-    this.loading$ = this.store.select(store => store.shopping.loading);
+    // this.shoppingItems$ = this.store.select(store => store.shopping.list);
+    this.shoppingItems$ = this.store.select(getListState);
+    // this.loading$ = this.store.select(store => store.shopping.loading);
+    this.loading$ = this.store.select(getLoadingState);
+    console.log(this.loading$);
     this.error$ = this.store.select(store => store.shopping.error);
 
     this.store.dispatch(new LoadShopping());
